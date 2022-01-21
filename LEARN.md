@@ -78,10 +78,10 @@ children prop is like this -
 Keys help React identify which items have changed, are added, or are removed. 
 Keys should be given to the elements inside the array to give the elements a stable identity:
 
-- react pattern? - HOC (with), custom hooks (use)
-
 - what is real DOM and virtual DOM?
 virtual DOM is js object use to modify Real DOM if there is any change. it uses Diffing algorithm to check the change
+
+- react pattern? - HOC (with), custom hooks (use)
 
 react hooks -
 - useState - call set function after timeout or promise and unmount the component.

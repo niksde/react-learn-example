@@ -1,22 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import LoginPage from "./LoginPage";
+import useAuth from "./useCustom";
 
 export default function withAuth(AppComponent) {
   return () => {
-    const [auth, setAuth] = useState(() => {
-      return localStorage.getItem("login");
-    });
-
-    useEffect(() => {
-      const handleLogin = () => {
-        setAuth(localStorage.getItem("login"));
-      };
-      window.addEventListener("storage", handleLogin);
-      return () => {
-        window.removeEventListener("storage", handleLogin);
-      };
-    }, []);
-
-    if (auth === "OK") return <AppComponent />;
-    return <div>Please login</div>;
+    const auth = useAuth();
+    return auth === "OK" ? <AppComponent /> : <LoginPage />;
   };
 }
